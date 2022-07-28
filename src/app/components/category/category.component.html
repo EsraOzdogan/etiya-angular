@@ -1,0 +1,23 @@
+<!-- <ul class="list-group">
+  <ng-template ngFor let-c [ngForOf]="categoryList">
+  <li (click)="getCategoryId(c.id)"  class="list-group-item">{{c.name}}</li>
+</ng-template>
+</ul> -->
+
+<!--
+<ul class="list-group">
+  <li (click)="getCategoryId(c.id)"  *ngFor="let c of categoryList" class="list-group-item">{{c.name}}</li>
+</ul> -->
+
+
+<div class="list-group"  *ngIf="loading==false; else loadingInfo">
+
+  <button *ngFor="let category of categoryList" type="button" (click)="getCategoryId(category)"
+     class="list-group-item list-group-item-action"   >{{category.name}}</button>
+</div>
+
+<ng-template #loadingInfo>
+  <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+</ng-template>

@@ -1,0 +1,69 @@
+<!-- <div class="container">
+  <ul class="list-group">
+    <li *ngFor="let product of productList" class="list-group-item">   ngFor ve ngIf aynı elementt de olamaz
+      <p *ngIf="product.city.toLowerCase()=='berlin'">{{product.contactName}}</p>
+    </li>  products.filter(p=>p.)
+  </ul>
+</div> -->
+
+<!-- <div class="container">
+  <ul class="list-group">
+    <ng-template ngFor let-product [ngForOf]="productList">   *ngFor ile aynı
+      <li  *ngIf="product.city.toLowerCase()=='berlin'" class="list-group-item">
+        <p>
+          {{product.contactName}}
+        </p>
+      </li>  products.filter(p=>p.)
+    </ng-template>
+
+  </ul>
+</div> -->
+
+
+
+<!--Else durumu-->
+<!-- <div class="container"> -->
+  <!-- <ul class="list-group">
+    <ng-template ngFor let-product [ngForOf]="productList">   *ngFor ile aynı
+      <li  *ngIf="product.city.toLowerCase()=='berlin'; else other_content" class="list-group-item">
+        <p>
+          {{product.contactName}}
+        </p>
+      </li>   products.filter(p=>p.)
+    </ng-template>
+    <ng-template #other_content>
+      <div>Else durumu</div>
+    </ng-template>
+
+  </ul> -->
+<!-- </div> -->
+<!--
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<p>Sepetinizde {{cartItems.length}} ürün var</p>
+
+<div class="row">         <!-- .row>.col-4*3 -->
+  <!--<div *ngFor="let p of productList" class="col-4 mt-5">
+    <etiya-product-card [product]="p" (onBtnClick)="addToCart($event)"></etiya-product-card>      <!--product="{{p}}"-->        <!--3-->
+  <!--</div>
+
+</div> -->
+
+<ng-template [ngIf]="productList" [ngIfElse]="loading">
+  <div class="row">
+      <div class="col-4" *ngFor="let p of productList">
+         <etiya-product-card (onBtnClick)="addToCart($event)" [product]="p"></etiya-product-card>
+      </div>
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+</ng-template>
+<div *ngIf="productList.length==0" class="alert alert-warning">
+  <p>Ürün yok</p>
+</div>
